@@ -4,6 +4,7 @@ const { validationResult } = require('express-validator/check')
 class Chiccocoin {
   constructor () {
     this.blockchain = new Blockchain()
+    this.getNodes=this.getNodes.bind(this)
     this.getChain = this.getChain.bind(this)
     this.addNode = this.addNode.bind(this)
     this.mine = this.mine.bind(this)
@@ -51,10 +52,19 @@ class Chiccocoin {
   }
 
   addNode (req, res, next) {
+    console.log(req)
     const nodes = this.blockchain.registerNode(req.body.node)
     req.responseValue = {
       message: `New node have been added`,
       nodes: nodes
+    }
+    return next()
+  }
+
+  getNodes(req,res,next){
+    req.responseValue={
+      message:'node',
+      nodes:this.blockchain.nodes
     }
     return next()
   }

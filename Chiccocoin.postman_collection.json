@@ -77,6 +77,57 @@
 				"description": "Add a transaction to the next mine\n"
 			},
 			"response": []
+		},
+		{
+			"name": "New Node",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n \"node\":\"nodeTest\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:3000/node/register",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"node",
+						"register"
+					]
+				},
+				"description": "Add a node to the next nodes\n"
+			},
+			"response": []
+		},
+		{
+			"name": "Nodes",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "http://localhost:3000/nodes",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"nodes"
+					]
+				},
+				"description": "Get All Nodes"
+			},
+			"response": []
 		}
 	]
 }
